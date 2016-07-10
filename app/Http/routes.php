@@ -19,6 +19,11 @@ Route::get('/',[
     'as' => 'home'
 ]);
 
+Route::get('/test',[
+    'uses' => '\BlueFeathers\Http\Controllers\HomeController@test',
+    'as' => 'test'
+]);
+
 /**
  *          ABOUT
  */
@@ -33,7 +38,7 @@ Route::get('/about',[
  */
 
 Route::get('/trainers', [
-    'uses' => '\BlueFeathers\Http\Controllers\TrainserController@index',
+    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@index',
     'as' => 'trainers'
 ]);
 
@@ -41,6 +46,25 @@ Route::get('/trainers', [
  *          CLASSES
  */
 
+Route::get('/classes', [
+    'uses' => '\BlueFeathers\Http\Controllers\ClassController@index',
+    'as' => 'classes'
+]);
+
 /**
  *          PRICING
  */
+
+Route::get('/prices', [
+        'uses' => '\BlueFeathers\Http\Controllers\PriceController@index',
+        'as' => 'prices'
+]);
+
+/**
+ *          CONTACT
+ */
+
+Route::get('/contact', [
+    'uses' => '\BlueFeathers\Http\Controllers\ContactController@index',
+    'as' => 'contact'
+]);

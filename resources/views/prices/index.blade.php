@@ -2,12 +2,12 @@
 
 @section('title')
 
-    | Be right back
+    | Prices
 
 @endsection
 
 @section('content')
 
-    503 content
+    Prices Content
 
 @endsection

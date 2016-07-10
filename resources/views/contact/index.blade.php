@@ -2,12 +2,14 @@
 
 @section('title')
 
-    | Be right back
+    | Contact
 
 @endsection
 
 @section('content')
 
-    503 content
+    Contact content
+
+    @include('maps.default')
 
 @endsection

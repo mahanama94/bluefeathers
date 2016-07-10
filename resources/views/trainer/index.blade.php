@@ -2,12 +2,12 @@
 
 @section('title')
 
-    | Be right back
+    | Trainers
 
 @endsection
 
 @section('content')
 
-    503 content
+    Trainer content
 
 @endsection

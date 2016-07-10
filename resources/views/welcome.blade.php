@@ -1,17 +1,6 @@
+@extends('templates.master')
 
-<!-- start header_top -->
-
-@include('templates.partials.welcomeHeader')
-
-<!-- end header_top -->
-<!-- start header_bottom -->
-
-@include('templates.partials.socialmedia')
-
-<!-- end header_bottom -->
-<!-- start menu -->
-
-@include('templates.partials.navigation')
+@section('content')
 
 <!-- end menu -->
 <div class="main">
@@ -519,10 +508,6 @@
     </div>
 </div>
 
-<div class="copyright">
 
-    @include('templates.partials.socialmedia')
 
-</div>
-</body>
-</html>
+    @endsection

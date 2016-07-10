@@ -41,11 +41,18 @@
 </head>
 <body>
 
-    <div class="main">
+    <div>
 
         @include('templates.partials.navigation')
 
-        @yield('content')
+        <div class="container">
+
+            @include('templates.partials.alert')
+
+            @yield('content')
+
+
+        </div>
 
         @include('templates.partials.socialmedia')
 
