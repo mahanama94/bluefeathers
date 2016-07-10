@@ -11,6 +11,36 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ *         HOME
+ */
+Route::get('/',[
+    'uses' => '\BlueFeathers\Http\Controllers\HomeController@index',
+    'as' => 'home'
+]);
+
+/**
+ *          ABOUT
+ */
+
+Route::get('/about',[
+    'uses' => '\BlueFeathers\Http\Controllers\AboutController@index',
+    'as' => 'about'
+]);
+
+/**
+ *          TRAINERS
+ */
+
+Route::get('/trainers', [
+    'uses' => '\BlueFeathers\Http\Controllers\TrainserController@index',
+    'as' => 'trainers'
+]);
+
+/**
+ *          CLASSES
+ */
+
+/**
+ *          PRICING
+ */
