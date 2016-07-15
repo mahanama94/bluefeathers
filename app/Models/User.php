@@ -1,11 +1,17 @@
 <?php
 
-namespace BlueFeathers;
+namespace BlueFeathers\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class User extends Authenticatable
+class User extends Model implements AuthenticatableContract
 {
+    use Authenticatable;
+
+    protected $table ='user';
     /**
      * The attributes that are mass assignable.
      *
@@ -23,4 +29,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getName(){
+        return $this->name;
+    }
+
 }

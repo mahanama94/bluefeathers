@@ -8,9 +8,28 @@
 
 namespace BlueFeathers\Http\Controllers;
 
+use BlueFeathers\Models\Trainer;
+
 class TrainerController extends Controller{
 
     public function index(){
-        return view('trainer.index');
+
+        $trainers = Trainer::where('status', true)->get();
+
+        return view('trainer.index')->with('trainers', $trainers);
+    }
+
+    public function addNew(){
+
+        return view('trainer.newtrainer');
+
+    }
+
+    public function postNew(){
+        echo "post of add new trainer lands here";
+    }
+
+    public function trainerIndex($id){
+        echo "Trainer for id ".$id;
     }
 }

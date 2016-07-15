@@ -42,6 +42,21 @@ Route::get('/trainers', [
     'as' => 'trainers'
 ]);
 
+Route::get('/trainers/new', [
+    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@addNew',
+    'as' =>'trainers.new'
+]);
+
+Route::post('/trainers/new', [
+    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@postNew',
+    'as' => 'trainers.new'
+]);
+
+Route::get('/trainers/{id}', [
+    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@trainerIndex',
+    'as' => 'trainer.index'
+]);
+
 /**
  *          CLASSES
  */
