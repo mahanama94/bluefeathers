@@ -17,6 +17,7 @@ class CreateTrainerTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('qualifications');
+            $table->string('email')->unique();
             $table->boolean('status');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class Trainer extends Model{
     protected $table = 'trainer';
 
     protected $fillable = [
-        'name' , 'qualifications' , 'description'
+        'name' , 'qualifications' , 'description', 'email' , 'status'
     ];
 
     public function getName(){
@@ -28,6 +28,10 @@ class Trainer extends Model{
 
     public function getDesciption(){
         return $this->description;
+    }
+
+    public function getJoinDate(){
+        return date('Y-m-d', strtotime($this->created_at));
     }
 
 }

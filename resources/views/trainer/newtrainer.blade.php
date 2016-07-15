@@ -44,14 +44,14 @@
 
                 <!-- DESCIPTION -->
                 <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                    <label for="description" class ="control-label">Qualifications </label>
-                    <input type="text" name="description" class="form-control" id="name" placeholder="Qualifications" value="{{ Request::old('description') ?:''}}">
+                    <label for="description" class ="control-label">Description </label>
+                    <input type="text" name="description" class="form-control" id="name" placeholder="Description" value="{{ Request::old('description') ?:''}}">
                     @if ($errors->has('description'))
                         <span class="helper-block">{{$errors->first('description')}}</span>
 
                     @endif
                 </div>
-                
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Sign Up</button>
                 </div>

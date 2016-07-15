@@ -10,6 +10,8 @@ namespace BlueFeathers\Http\Controllers;
 
 use BlueFeathers\Models\Trainer;
 
+use Illuminate\Http\Request;
+
 class TrainerController extends Controller{
 
     public function index(){
@@ -25,8 +27,26 @@ class TrainerController extends Controller{
 
     }
 
-    public function postNew(){
-        echo "post of add new trainer lands here";
+    public function postNew(Request $request){
+
+        $this->validate($request, [
+            'name' => 'required|max:30',
+            'email' => 'required|unique:trainer|email|max:255',
+            'qualifications' => 'required',
+            'description' => 'required'
+        ]);
+
+        Trainer::create([
+            "name" => $request->input('name'),
+            "email" => $request->input('email'),
+            "qualifications" =>$request->input('qualifications'),
+            "description" => $request->input('description'),
+            'email' => $request->input('email'),
+            'status' => 1
+        ]);
+
+        return redirect()->route('trainers.new')->with('success', 'Your account has been created, Please login to continue');
+
     }
 
     public function trainerIndex($id){
