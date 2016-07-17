@@ -23,7 +23,9 @@ class TrainerController extends Controller{
 
     public function addNew(){
 
-        return view('trainer.newtrainer');
+        $trainers = Trainer::where('status', true)->get();
+
+        return view('trainer.newtrainer')->with('trainers', $trainers);
 
     }
 
@@ -50,6 +52,11 @@ class TrainerController extends Controller{
     }
 
     public function trainerIndex($id){
-        echo "Trainer for id ".$id;
+
+        $trainer = Trainer::where('id', $id)->first();
+        if(!$trainer){
+            return redirect()->route('trainers');
+        }
+        return view('trainer.profile')->with('trainer', $trainer);
     }
 }

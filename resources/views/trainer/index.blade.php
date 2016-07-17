@@ -14,7 +14,10 @@
         <div class="about_trainer">
             <h3 class="m_2">Our Trainers</h3>
                 @foreach($trainers as$trainer)
-                    @include('trainer.partials.trainerblock')
+                    <div class="row about_box">
+                        <div class="col-md-3"></div>
+                        @include('trainer.partials.trainerblock')
+                    </div>
                 @endforeach
         </div>
     </div>

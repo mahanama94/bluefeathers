@@ -15,7 +15,15 @@ class GymClass extends Model{
     protected $table = 'class';
 
     protected $fillable = [
-        'name'
+        'name' , 'description'
     ];
+
+    public function getDescription(){
+        return $this->description;
+    }
+
+    public function getName(){
+        return $this->name;
+    }
     
 }

@@ -1,13 +1,18 @@
 
 
-        <div class="row about_box">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+
+
+            <div class="col-lg-6">
                 <div class="box1">
                     <div class="box1_left">
-                        <img src="images/about_img3.jpg" class="img-responsive" alt=""/>
+                        <img src="{{ asset('images/about_img3.jpg') }}" class="img-responsive" alt=""/>
                         <div class="desc1">
-                            <h3>{{ $trainer->getName() }}<br><span class="m_text">Classes by trainer</span></h3>
+                            <h3>
+                                <a href="{{ route('trainer.index', ['id' => $trainer->getId()]) }}" >{{ $trainer->getName() }}</a>
+                                <br>
+                                <span class="m_text">Classes by trainer</span>
+                            </h3>
+
                             <p>Since {{ $trainer->getJoinDate() }}</p>
                             <!--
                             <div class="coursel_list">
@@ -33,4 +38,3 @@
                 </div>
             </div>
 
-        </div>
