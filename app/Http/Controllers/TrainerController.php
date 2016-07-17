@@ -45,7 +45,7 @@ class TrainerController extends Controller{
             'status' => 1
         ]);
 
-        return redirect()->route('trainers.new')->with('success', 'Your account has been created, Please login to continue');
+        return redirect()->route('trainers.new')->with('success', 'Trainer profile has been created');
 
     }
 

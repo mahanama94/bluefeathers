@@ -10,11 +10,6 @@
 
     @include('banners.default',['caption' =>'Trainers'])
 
-    Trainer content
-
-    <br>
-
-    <a href="{{ route('trainers.new') }}">Add new trainer</a>
     <div class="container">
         <div class="about_trainer">
             <h3 class="m_2">Our Trainers</h3>
@@ -23,5 +18,12 @@
                 @endforeach
         </div>
     </div>
+
+
+    Trainer content
+
+    <br>
+
+    <a href="{{ route('trainers.new') }}">Add new trainer</a>
 
 @endsection

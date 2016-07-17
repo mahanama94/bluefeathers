@@ -1,6 +1,7 @@
 
 
         <div class="row about_box">
+            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="box1">
                     <div class="box1_left">
