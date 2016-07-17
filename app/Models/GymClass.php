@@ -18,6 +18,30 @@ class GymClass extends Model{
         'name' , 'description'
     ];
 
+    /**
+     *      RELATIONSHIPS
+     */
+
+    private function trainer(){
+        return $this->belongsTo('BlueFeathers\Models\Trainer', 'trainerId', 'id');
+    }
+
+    /**
+     *      RELATIONSHIPS GETTERS
+     */
+
+    public function getTrainer(){
+        return $this->trainer()->first();
+    }
+
+    /**
+     *      GETTERS
+     */
+
+    public function getId(){
+        return $this->id;
+    }
+
     public function getDescription(){
         return $this->description;
     }

@@ -18,6 +18,26 @@ class Trainer extends Model{
         'name' , 'qualifications' , 'description', 'email' , 'status'
     ];
 
+    /*
+     *      RELATIONSHIPS
+     */
+
+    private function gymClass(){
+        return $this->hasMany('BlueFeathers\Models\GymClass', 'trainerId');
+    }
+
+    /**
+     *      RELATIONSHIP - GETTERS
+     */
+
+    public function getClasses(){
+        return $this->gymClass()->get();
+    }
+
+    /**
+     *      GETTERS
+     */
+
     public function getId(){
         return $this->id;
     }

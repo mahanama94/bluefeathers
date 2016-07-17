@@ -10,7 +10,13 @@
                             <h3>
                                 <a href="{{ route('trainer.index', ['id' => $trainer->getId()]) }}" >{{ $trainer->getName() }}</a>
                                 <br>
-                                <span class="m_text">Classes by trainer</span>
+                                <span class="m_text">
+                                    @foreach($trainer->getClasses() as $class)
+
+                                        {{ $class->getName() }} <br>
+
+                                    @endforeach
+                                </span>
                             </h3>
 
                             <p>Since {{ $trainer->getJoinDate() }}</p>
