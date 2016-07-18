@@ -66,6 +66,21 @@ Route::get('/classes', [
     'as' => 'classes'
 ]);
 
+Route::get('/classes/new', [
+   'uses' => '\BlueFeathers\Http\Controllers\ClassController@addNew',
+    'as'=> 'classes.new'
+]);
+
+Route::post('/classes/new', [
+    'uses' => '\BlueFeathers\Http\Controllers\ClassController@postNew',
+    'as'=> 'classes.new'
+]);
+
+Route::get('/classes/{id}', [
+    'uses' => '\BlueFeathers\Http\Controllers\ClassController@classIndex',
+    'as'=> 'classes.new'
+]);
+
 /**
  *          PRICING
  */

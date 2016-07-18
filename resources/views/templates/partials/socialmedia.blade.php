@@ -15,6 +15,7 @@
                                     <span></span></a>
                             </li>
 
+                            <!--
                             <li class="twitter"><a href="#"><span> </span></a></li>
 
                             <li class="pinterest"><a href="#"><span> </span></a></li>
@@ -26,6 +27,8 @@
                             <li class="instagram"><a href="#"><span> </span></a></li>
 
                             <li class="rss"><a href="#"><span> </span></a></li>
+
+                            -->
 
                         </ul>
                     </div>

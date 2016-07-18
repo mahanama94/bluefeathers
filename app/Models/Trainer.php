@@ -15,9 +15,33 @@ class Trainer extends Model{
     protected $table = 'trainer';
 
     protected $fillable = [
-        'name' , 'qualifications' , 'description'
+        'name' , 'qualifications' , 'description', 'email' , 'status'
     ];
 
+    /*
+     *      RELATIONSHIPS
+     */
+
+    private function gymClass(){
+        return $this->hasMany('BlueFeathers\Models\GymClass', 'trainerId');
+    }
+
+    /**
+     *      RELATIONSHIP - GETTERS
+     */
+
+    public function getClasses(){
+        return $this->gymClass()->get();
+    }
+
+    /**
+     *      GETTERS
+     */
+
+    public function getId(){
+        return $this->id;
+    }
+    
     public function getName(){
         return $this->name;
     }
@@ -28,6 +52,10 @@ class Trainer extends Model{
 
     public function getDesciption(){
         return $this->description;
+    }
+
+    public function getJoinDate(){
+        return date('Y-m-d', strtotime($this->created_at));
     }
 
 }

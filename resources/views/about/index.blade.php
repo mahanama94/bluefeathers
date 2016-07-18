@@ -7,7 +7,7 @@
 
 @section('content')
 
-    @include('banners.default')
+    @include('banners.default', ['caption' => 'About'])
     About content
 
 @endsection

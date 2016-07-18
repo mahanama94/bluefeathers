@@ -8,11 +8,14 @@
 
 @section('content')
 
+    @include('banners.default', ['caption' => 'Classes'])
     Class Content
 
     <div class="classes_wrapper">
 
-        @include('class.partials.classblock')
+        @foreach($classes as $class)
+            @include('class.partials.classblock')
+        @endforeach
 
     </div>
 
