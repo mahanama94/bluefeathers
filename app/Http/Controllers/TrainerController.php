@@ -20,9 +20,7 @@ class TrainerController extends Controller{
     }
 
     public function addNew(){
-
-        return view('trainer.newtrainer');
-
+        return view('trainer.test');
     }
 
     public function postNew(){
