@@ -73,6 +73,7 @@
         @endforeach
 
     </div>
+@endsection
 
 
 @endsection
