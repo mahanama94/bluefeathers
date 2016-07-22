@@ -19,4 +19,8 @@
 
     </div>
 
+    <br>
+
+    <a href="{{ route('classes.new') }}">Create a new class</a>
+
 @endsection

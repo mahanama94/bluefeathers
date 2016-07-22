@@ -2,7 +2,7 @@
 
 @section('title')
 
-    | Trainers
+    | Classes
 
 @endsection
 
@@ -12,13 +12,13 @@
     </div>
 
 @section('content')
-    <h3>Add new Trainer</h3>
+    <h3>Add a new class</h3>
     <div class ="row">
 
-        @include('trainer.partials.newtrainerform')
+        @include('class.partials.newclassform')
 
-        @foreach($trainers as $trainer)
-            @include('trainer.partials.trainerblock')
+        @foreach($classes as $class)
+            @include('class.partials.classblock')
         @endforeach
 
     </div>
