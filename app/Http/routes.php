@@ -76,13 +76,10 @@ Route::post('/classes/new', [
     'as'=> 'classes.new'
 ]);
 
-//couldn't understand why this route is. interfering with other classes.new get.
-/**
 Route::get('/classes/{id}', [
     'uses' => '\BlueFeathers\Http\Controllers\ClassController@classIndex',
-    'as'=> 'classes.new'
+    'as'=> 'classes.index'
 ]);
-*/
 
 /**
  *          PRICING
