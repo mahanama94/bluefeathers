@@ -11,12 +11,15 @@
         </div>
 
         <!-- TRAINER NAME -->
-        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="email" class ="control-label">Trainer</label>
-            <input type="text" name="email" class="form-control" id="email" placeholder="E-mail address" value="{{ Request::old('email') ?:''}}">
-            @if ($errors->has('email'))
-                <span class="helper-block">{{$errors->first('email')}}</span>
-
+        <div class="form-group{{ $errors->has('trainerId') ? ' has-error' : '' }}">
+            <label for="trainer" class ="control-label">Trainer</label>
+            <select name="trainerId" class="form-control" id="trainerId" placeholder="Select Trainer" value="{{ Request::old('trainerId') ?:''}}">
+                @foreach($trainers as $trainer)
+                    <option value="{{ $trainer->getId() }}">{{ $trainer->getName() }}</option>
+                @endforeach
+            </select>
+            @if ($errors->has('trainerId'))
+                <span class="helper-block">{{$errors->first('trainerId')}}</span>
             @endif
         </div>
 
@@ -33,11 +36,25 @@
         <!-- DESCRIPTION -->
         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
             <label for="description" class ="control-label">Description </label>
-            <input type="text" name="description" class="form-control" id="name" placeholder="Description" value="{{ Request::old('description') ?:''}}">
+            <textarea name="description" class="form-control" id="name" placeholder="Description" value="{{ Request::old('description') ?:''}}"></textarea>
             @if ($errors->has('description'))
                 <span class="helper-block">{{$errors->first('description')}}</span>
             @endif
         </div>
+
+        <!-- STATUS-->
+        <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+            <label for="status" class ="control-label">Status</label>
+            <select name="status" class="form-control" id="status" placeholder="Select Status" value="{{ Request::old('status') ?:''}}">
+                <option value=1>Open</option>
+                <option value=0>Closed</option>
+            </select>
+            @if ($errors->has('status'))
+                <span class="helper-block">{{$errors->first('status')}}</span>
+            @endif
+        </div>
+
+
 
         <div class="form-group">
             <button type="submit" class="btn btn-default">Add</button>

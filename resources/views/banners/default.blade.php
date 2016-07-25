@@ -1,5 +1,5 @@
 
-<div class="about_banner_img"><img src="{{ isset($image) ? $image : 'images/trine_img.jpg'}}" class="img-responsive" alt=""></div>
+<div class="about_banner_img"><img src="{{ isset($image) ? $image : asset('images/trine_img.jpg') }}" class="img-responsive" alt=""></div>
 
 
 <div class="about_banner_wrap">

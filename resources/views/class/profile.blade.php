@@ -13,14 +13,9 @@
 
     <div class="classes_wrapper">
 
-        @foreach($classes as $class)
-            @include('class.partials.classblock', ['editable' => Auth::check()])
-        @endforeach
+        @include('class.partials.classblock')
+
 
     </div>
-
-    <br>
-
-    <a href="{{ route('classes.new') }}">Create a new class</a>
 
 @endsection

@@ -1,3 +1,4 @@
+
 <div class="col-lg-6">
     <div class="box1">
         <div class="box1_left">
@@ -35,6 +36,11 @@
             <p>{{ $trainer->getDesciption() }}</p>
             <h4>Qualifications</h4>
             <p class="para1">{{ $trainer->getQualifications() }}</p>
+            @if(Auth::check())
+                <ul class="buttons_class">
+                    <li class="btn5"><a href="#">Edit</a></li>
+                </ul>
+            @endif
         </div>
         <div class="clear"></div>
     </div>
