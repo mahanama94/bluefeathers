@@ -10,6 +10,9 @@
 namespace BlueFeathers\Http\Controllers;
 
 use BlueFeathers\Models\GymClass;
+use BlueFeathers\Models\Trainer;
+
+use Illuminate\Http\Request;
 
 class ClassController extends Controller{
 
@@ -17,14 +20,19 @@ class ClassController extends Controller{
 
         $classes = GymClass::all();
 
-        return view('class.index')->with('classes', $classes);
+        return view('class.index')
+            ->with('classes', $classes);
     }
 
     public function addNew(){
 
         $classes = GymClass::all();
 
-        return view('class.newclass')->with('classes', $classes);
+        $trainers = Trainer::all();
+
+        return view('class.newclass')
+            ->with('classes', $classes)
+            ->with('trainers', $trainers);
     }
 
 
@@ -36,23 +44,26 @@ class ClassController extends Controller{
             'description' => 'required',
         ]);
 
-        GymClass::create([
+
+        $class = GymClass::create([
             "name" => $request->input('name'),
             "description" => $request->input('description'),
             'trainerId' => $request->input('trainerId'),
+            "status" => $request->input('status'),
         ]);
 
-        return view('classes.new')->with('info', "Class successfully added");
 
+        return redirect()->route('classes.new')->with('success', 'New class has been created');
     }
 
-    public function trainerIndex($id){
+    public function classIndex($id){
 
         $class = GymClass::where('id', $id)->first();
         if(!$class){
             return redirect()->route('classes');
         }
-        return view('classes.profile')->with('class', $class);
+        return view('class.profile')
+            ->with('class', $class);
 
     }
 }
