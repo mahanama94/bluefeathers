@@ -8,10 +8,10 @@
                     <a href="{{ route('trainer.index', ['id' => $trainer->getId()]) }}">{{ $trainer->getName() }}</a>
                     <br>
                     <span class="m_text">
-                                    @foreach($trainer->getClasses() as $class)
-
-                            {{ $class->getName() }} <br>
-
+                        @foreach($trainer->getClasses() as $class)
+                            <a href="{{ route('classes.index', ['id' , $class->getId()]) }}">
+                                {{ $class->getName() }} <br>
+                            </a>
                         @endforeach
                                 </span>
                 </h3>

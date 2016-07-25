@@ -18,6 +18,16 @@
                 </div>
 
         </div>
+    </div>
+
+    <div class="container">
+        <h3 class="m_2">Classes by - {{ $trainer->getName() }}</h3>
+        <div class="row about_box">
+            @foreach($trainer->getClasses() as $class)
+                <div class="col-md-3"></div>
+                @include('class.partials.classblock')
+            @endforeach
+        </div>
 
     </div>
     Trainer content
