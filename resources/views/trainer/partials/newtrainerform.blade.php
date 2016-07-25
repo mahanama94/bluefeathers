@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-    <form class="form-vertical" role="form" method="post" action="{{ route('trainers.new') }}">
+    <form class="form-vertical" role="form" method="post" action="{{ route('trainers.new') }}" enctype="multipart/form-data">
 
         <!-- NAME -->
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -26,8 +26,7 @@
         <!-- QUALIFICATIONS -->
         <div class="form-group{{ $errors->has('qualifications') ? ' has-error' : '' }}">
             <label for="name" class="control-label">Qualifications </label>
-            <textarea name="qualifications" class="form-control" id="name" placeholder="Qualifications"
-                      value="{{ Request::old('qualifications') ?:''}}"></textarea>
+            <textarea name="qualifications" class="form-control" id="name" placeholder="Qualifications" value="{{ Request::old('qualifications') ?:''}}"></textarea>
             @if ($errors->has('qualifications'))
                 <span class="helper-block">{{$errors->first('qualifications')}}</span>
 
@@ -44,6 +43,17 @@
 
             @endif
         </div>
+
+        <!-- Image upload -->
+        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+            <label for="image" class="control-label">Image</label>
+            <input type="file" name="image" id="image"/>
+            @if ($errors->has('image'))
+                <span class="helper-block">{{$errors->first('image')}}</span>
+
+            @endif
+        </div>
+
 
         <div class="form-group">
             <button type="submit" class="btn btn-default">Add</button>

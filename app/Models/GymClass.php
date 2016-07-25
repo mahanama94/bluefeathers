@@ -15,7 +15,7 @@ class GymClass extends Model{
     protected $table = 'class';
 
     protected $fillable = [
-        'name' , 'description'
+        'trainerId', 'name' , 'description', 'status'
     ];
 
     /**
@@ -48,6 +48,13 @@ class GymClass extends Model{
 
     public function getName(){
         return $this->name;
+    }
+
+    public function getStatus(){
+        if($this->status == '1'){
+            return "Open";
+        }
+        return "Closed";
     }
     
 }

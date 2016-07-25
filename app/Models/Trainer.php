@@ -15,7 +15,7 @@ class Trainer extends Model{
     protected $table = 'trainer';
 
     protected $fillable = [
-        'name' , 'qualifications' , 'description', 'email' , 'status'
+        'name' , 'qualifications' , 'description', 'email' , 'status', 'image'
     ];
 
     /*
@@ -56,6 +56,17 @@ class Trainer extends Model{
 
     public function getJoinDate(){
         return date('Y-m-d', strtotime($this->created_at));
+    }
+
+    public function getUpdateDate(){
+        return date('Y_m_d', strtotime($this->updated_at));
+    }
+
+    public function getImage(){
+        if($this->image==''){
+            return 'images/about_img3.jpg';
+        }
+        return $this->image;
     }
 
 }

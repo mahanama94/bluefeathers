@@ -11,6 +11,7 @@ namespace BlueFeathers\Http\Controllers;
 use BlueFeathers\Models\Trainer;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class TrainerController extends Controller{
 
@@ -35,10 +36,11 @@ class TrainerController extends Controller{
             'name' => 'required|max:30',
             'email' => 'required|unique:trainer|email|max:255',
             'qualifications' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'image' =>'required|mimes:jpeg,bmp,png'
         ]);
 
-        Trainer::create([
+        $trainer = Trainer::create([
             "name" => $request->input('name'),
             "email" => $request->input('email'),
             "qualifications" =>$request->input('qualifications'),
@@ -47,7 +49,15 @@ class TrainerController extends Controller{
             'status' => 1
         ]);
 
-        return redirect()->route('trainers.new')->with('success', 'Trainer profile has been created');
+        $imageName = $trainer->getId().'_'.$trainer->getUpdateDate().'.'.$request->file('image')->getClientOriginalExtension();
+
+        $request->file('image')->move(base_path() . '/public/images/trainer/', $imageName);
+
+        $trainer->update([
+            'image' => 'images/trainer/'.$imageName
+        ]);
+
+        return redirect()->route('trainers.new')->with('success', 'Trainer profile has been created for '.$trainer->getName());
 
     }
 

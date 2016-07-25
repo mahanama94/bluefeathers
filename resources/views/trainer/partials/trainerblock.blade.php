@@ -2,7 +2,7 @@
 <div class="col-lg-6">
     <div class="box1">
         <div class="box1_left">
-            <img src="{{ asset('images/about_img3.jpg') }}" class="img-responsive" alt=""/>
+            <img src="{{ asset($trainer->getImage()) }}" class="img-responsive" alt=""/>
             <div class="desc1">
                 <h3>
                     <a href="{{ route('trainer.index', ['id' => $trainer->getId()]) }}">{{ $trainer->getName() }}</a>
