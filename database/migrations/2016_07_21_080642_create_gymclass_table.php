@@ -18,6 +18,7 @@ class CreateGymclassTable extends Migration
             $table->text('description');
             $table->unsignedInteger('trainerId');
             $table->boolean('status');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateGymclassTable extends Migration
      */
     public function down()
     {
-        Schema::drop('trainer');
+        Schema::drop('class');
     }
 }

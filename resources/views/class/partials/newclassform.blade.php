@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-    <form class="form-vertical" role="form" method="post" action="{{ route('classes.new') }}">
+    <form class="form-vertical" role="form" method="post" action="{{ route('classes.new') }}" enctype="multipart/form-data">
 
         <!-- NAME -->
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -51,6 +51,16 @@
             </select>
             @if ($errors->has('status'))
                 <span class="helper-block">{{$errors->first('status')}}</span>
+            @endif
+        </div>
+
+        <!-- Image -->
+        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+            <label for="image" class="control-label">Image</label>
+            <input type="file" name="image" id="image"/>
+            @if ($errors->has('image'))
+                <span class="helper-block">{{$errors->first('image')}}</span>
+
             @endif
         </div>
 

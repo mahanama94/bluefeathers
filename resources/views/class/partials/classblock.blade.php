@@ -1,7 +1,7 @@
 <div class="col-md-6">
 
     <div class="class_left">
-        <a href="#"><img src="{{ asset('images/c4.jpg') }}" class="img-responsive" alt="{{ $class->getName() }}"
+        <a href="#"><img src="{{ asset($class->getImage()) }}" class="img-responsive" alt="{{ $class->getName() }}"
                          title="continue"></a>
     </div>
 
@@ -11,15 +11,19 @@
 
         <div class="class_img">
 
-            <img src="{{ asset('images/c12.jpg') }}" alt=""/>
+            {{--*/
+                $trainer = $class->getTrainer();
+            /*--}}
+
+            <img src="{{ asset($trainer->getImage()) }}" alt=""/>
 
             <div class="class_desc1">
-                <h4><a href="{{ route('trainer.index', ['id' => $class->getTrainer()->getId()]) }}">
+                <h4><a href="{{ route('trainer.index', ['id' => $trainer->getId()]) }}">
                         {{ $class->getTrainer()->getName() }}
                     </a>
                 </h4>
                 <h5>{{ $class->getStatus() }}</h5>
-                <p>{{ $class->getTrainer()->getDesciption() }}</p>
+                <p>{{ $trainer->getDesciption() }}</p>
             </div>
 
             <div class="clear"></div>

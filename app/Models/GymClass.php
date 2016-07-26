@@ -9,13 +9,14 @@
 namespace BlueFeathers\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class GymClass extends Model{
 
     protected $table = 'class';
 
     protected $fillable = [
-        'trainerId', 'name' , 'description', 'status'
+        'trainerId', 'name' , 'description', 'status', 'image'
     ];
 
     /**
@@ -55,6 +56,31 @@ class GymClass extends Model{
             return "Open";
         }
         return "Closed";
+    }
+
+    public function getImage(){
+        if($this->image==''){
+            return 'images/c4.jpg';
+        }
+        return $this->image;
+    }
+
+    public function getUpdateDate(){
+        return date('Y_m_d', strtotime($this->updated_at));
+    }
+
+    /**
+     *      SETTERS
+     */
+
+    public function setImage(Request $request){
+        $imageName = $this->getId().'_'.$this->getUpdateDate().'.'.$request->file('image')->getClientOriginalExtension();
+
+        $request->file('image')->move(base_path() . '/public/images/class/', $imageName);
+
+        $this->update([
+            'image' => 'images/class/'.$imageName
+        ]);
     }
     
 }

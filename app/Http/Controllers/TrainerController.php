@@ -57,7 +57,8 @@ class TrainerController extends Controller{
             'image' => 'images/trainer/'.$imageName
         ]);
 
-        return redirect()->route('trainers.new')->with('success', 'Trainer profile has been created for '.$trainer->getName());
+        return redirect()->route('trainer.index',['id' => $trainer->getId()])
+            ->with('success', 'Trainer profile has been created for '.$trainer->getName());
 
     }
 

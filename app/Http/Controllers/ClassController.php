@@ -42,6 +42,7 @@ class ClassController extends Controller{
             'name' => 'required|max:30',
             'trainerId' => 'required',
             'description' => 'required',
+            'image' => 'required'
         ]);
 
 
@@ -52,8 +53,11 @@ class ClassController extends Controller{
             "status" => $request->input('status'),
         ]);
 
+        $class->setImage($request);
 
-        return redirect()->route('classes.new')->with('success', 'New class has been created');
+
+        return redirect()->route('classes.index', ['id' => $class->getId()])
+            ->with('success', 'New class has been created');
     }
 
     public function classIndex($id){
