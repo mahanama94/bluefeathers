@@ -25,6 +25,33 @@ Route::get('/test',[
 ]);
 
 /**
+ *          AUTH
+ */
+
+Route::get('/signup', [
+    'uses'=> '\BlueFeathers\Http\Controllers\AuthController@getSignup',
+    'as' => 'auth.signup'
+]);
+
+Route::post('/signup', [
+    'uses'=> '\BlueFeathers\Http\Controllers\AuthController@postSignup',
+]);
+
+Route::get('/login', [
+    'uses' => '\BlueFeathers\Http\Controllers\AuthController@getLogin',
+    'as' => 'auth.login'
+]);
+
+Route::post('/login', [
+    'uses' => '\BlueFeathers\Http\Controllers\AuthController@postLogin',
+]);
+
+Route::get('/logout', [
+    'uses' => '\BlueFeathers\Http\Controllers\AuthController@getLogout',
+    'as' => 'auth.logout'
+]);
+
+/**
  *          ABOUT
  */
 
@@ -53,8 +80,18 @@ Route::post('/trainers/new', [
 ]);
 
 Route::get('/trainers/{id}', [
-    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@trainerIndex',
+    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@trainerProfile',
     'as' => 'trainer.index'
+]);
+
+Route::get('/trainers/edit/{id}',[
+    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@getEdit',
+    'as' => 'trainer.edit'
+]);
+
+Route::post('/trainers/edit/',[
+    'uses' => '\BlueFeathers\Http\Controllers\TrainerController@postEdit',
+    'as' => 'trainer.postEdit'
 ]);
 
 /**

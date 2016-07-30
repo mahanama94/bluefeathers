@@ -62,12 +62,26 @@ class TrainerController extends Controller{
 
     }
 
-    public function trainerIndex($id){
+    public function trainerProfile($id){
 
         $trainer = Trainer::where('id', $id)->first();
         if(!$trainer){
             return redirect()->route('trainers');
         }
         return view('trainer.profile')->with('trainer', $trainer);
+    }
+    
+    public function getEdit($id){
+
+        $trainer = Trainer::where('id', $id)->first();
+        if(!$trainer){
+            return redirect()->route('trainers');
+        }
+
+        return view('trainer.edit')->with('trainer', $trainer);
+    }
+    
+    public function postEdit(Request $request){
+        echo "Posted edit";
     }
 }
