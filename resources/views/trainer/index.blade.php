@@ -26,7 +26,10 @@
     Trainer content
 
     <br>
+    @if(Auth::check())
 
-    <a href="{{ route('trainers.new') }}">Add new trainer</a>
+        <a href="{{ route('trainers.new') }}">Add new trainer</a>
+
+    @endif
 
 @endsection

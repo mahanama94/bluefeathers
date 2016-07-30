@@ -21,6 +21,9 @@
 
     <br>
 
-    <a href="{{ route('classes.new') }}">Create a new class</a>
+    @if(Auth::check())
 
+        <a href="{{ route('classes.new') }}">Create a new class</a>
+
+    @endif
 @endsection

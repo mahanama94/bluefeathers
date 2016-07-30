@@ -14,6 +14,13 @@
                         <li><a href="{{ route('classes') }}">   Classes </a></li>
                         <li><a href="{{ route('prices') }}">    Pricing </a></li>
                         <li><a href="{{ route('contact') }}">   Contact </a></li>
+
+                        @if(Auth::check())
+
+                            <li><a href="#">                                Settings    </a></li>
+                            <li><a href="{{ route('auth.logout') }}">       LogOut      </a></li>
+
+                        @endif
                     </ul>
 
                     <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>

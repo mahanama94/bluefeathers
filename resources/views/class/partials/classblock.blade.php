@@ -23,7 +23,7 @@
                     </a>
                 </h4>
                 <h5>{{ $class->getStatus() }}</h5>
-                <p>{{ $trainer->getDesciption() }}</p>
+                <p>{{ $trainer->getDescription() }}</p>
             </div>
 
             <div class="clear"></div>

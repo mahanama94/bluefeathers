@@ -33,12 +33,12 @@
         </div>
         <div class="box1_right">
             <h4>About</h4>
-            <p>{{ $trainer->getDesciption() }}</p>
+            <p>{{ $trainer->getDescription() }}</p>
             <h4>Qualifications</h4>
             <p class="para1">{{ $trainer->getQualifications() }}</p>
             @if(Auth::check())
                 <ul class="buttons_class">
-                    <li class="btn5"><a href="#">Edit</a></li>
+                    <li class="btn5"><a href="{{ route('trainer.edit', ['id'=> $trainer->getId()]) }}">Edit</a></li>
                 </ul>
             @endif
         </div>
