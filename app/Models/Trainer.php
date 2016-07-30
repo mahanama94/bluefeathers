@@ -15,7 +15,7 @@ class Trainer extends Model{
     protected $table = 'trainer';
 
     protected $fillable = [
-        'name' , 'qualifications' , 'description', 'email' , 'status', 'image'
+        'id', 'name' , 'qualifications' , 'description', 'email' , 'status', 'image'
     ];
 
     /*
@@ -46,11 +46,15 @@ class Trainer extends Model{
         return $this->name;
     }
 
+    public function getEmail(){
+        return $this->email;
+    }
+
     public function  getQualifications(){
         return $this->qualifications;
     }
 
-    public function getDesciption(){
+    public function getDescription(){
         return $this->description;
     }
 

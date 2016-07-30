@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id', 'name', 'email', 'password',
     ];
 
     /**
@@ -32,6 +32,10 @@ class User extends Model implements AuthenticatableContract
 
     public function getName(){
         return $this->name;
+    }
+
+    public function getEmail(){
+        return $this->email;
     }
 
 }
